@@ -46,12 +46,12 @@ class _HomePageState extends State<HomePage> {
             style: TextStyle(
               fontSize: 34,
               fontWeight: FontWeight.bold,
-              color: Color(0xFF5D5E7B),
+              color: Color(0xFF232447),
             ),
           ),
           Text(
             'Search for a Pokémon by name or using its National Pokédex number.',
-            style: TextStyle(fontSize: 20, color: Colors.grey[600]),
+            style: TextStyle(fontSize: 20, color: Color(0xFF3C414F)),
           ),
         ],
       ),
