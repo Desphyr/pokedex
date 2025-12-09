@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Pokedex ',
+            'Pokédex',
             style: TextStyle(
               fontSize: 34,
               fontWeight: FontWeight.bold,
@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Text(
-            'Search for a Pokemeon by name or using its National Pokédex number.',
+            'Search for a Pokémon by name or using its National Pokédex number.',
             style: TextStyle(fontSize: 20, color: Colors.grey[600]),
           ),
         ],
