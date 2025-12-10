@@ -23,7 +23,16 @@ class _DetailPageState extends State<DetailPage> {
           ),
         ),
       ),
-      body: Container(),
+      body: Column(
+        children: [
+          Center(
+            child: Text(
+              '003',
+              style: TextStyle(fontSize: 20, color: Color(0xFF3C414F)),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
