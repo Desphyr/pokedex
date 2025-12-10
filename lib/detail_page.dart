@@ -14,7 +14,14 @@ class _DetailPageState extends State<DetailPage> {
       backgroundColor: Color(0xFFF5FBFB),
       appBar: AppBar(
         backgroundColor: Color(0xFFF5FBFB),
-        title: Text('Venusaur'),
+        title: Text(
+            'Venusaur',
+            style: TextStyle(
+            color: Color(0xFF232447),
+            fontWeight: FontWeight.bold,
+            fontSize: 29,
+          ),
+        ),
       ),
       body: Container(),
     );
