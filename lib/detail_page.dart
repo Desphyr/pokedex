@@ -15,8 +15,8 @@ class _DetailPageState extends State<DetailPage> {
       appBar: AppBar(
         backgroundColor: Color(0xFFF5FBFB),
         title: Text(
-            'Venusaur',
-            style: TextStyle(
+          'Venusaur',
+          style: TextStyle(
             color: Color(0xFF232447),
             fontWeight: FontWeight.bold,
             fontSize: 29,
@@ -28,7 +28,14 @@ class _DetailPageState extends State<DetailPage> {
           Center(
             child: Text(
               '003',
+
               style: TextStyle(fontSize: 20, color: Color(0xFF3C414F)),
+            ),
+          ),
+          SizedBox(height: 10),
+          Padding(
+            padding: EdgeInsets.all(18.0),
+            child: Container(height: 450, width: double.infinity
             ),
           ),
         ],
