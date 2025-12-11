@@ -4,14 +4,14 @@ class PokemonCardWidget extends StatelessWidget {
   final String imageUrl;
   final String name;
   final String type;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
 
   const PokemonCardWidget({
     super.key,
     required this.imageUrl,
     required this.name,
     required this.type,
-    required this.onTap,
+    this.onTap,
   });
 
   @override

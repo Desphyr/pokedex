@@ -94,6 +94,8 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+
+
   Widget listPokemon() {
     return Expanded(
       child: GridView.builder(
@@ -105,19 +107,27 @@ class _HomePageState extends State<HomePage> {
         ),
         itemCount: dummyPokemonList.length,
         itemBuilder: (context, index) {
+          final pokemon = dummyPokemonList[index];
+          
 
-          return PokemonCardWidget(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => DetailPage(pokemon: dummyPokemonList[index]),
-                ),
-              );
+          return GestureDetector(
+            onTap: () async {
+              try {
+                await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DetailPage(pokemon: pokemon),
+                  ),
+                );
+              } catch (e) {
+                // menangangani kesalahan navigasi tanpa notifikasi di production
+              }
             },
-            imageUrl: dummyPokemonList[index].imageUrl,
-            name: dummyPokemonList[index].name,
-            type: dummyPokemonList[index].type,
+            child: PokemonCardWidget(
+              imageUrl: pokemon.imageUrl,
+              name: pokemon.name,
+              type: pokemon.type,
+            ),
           );
         },
       ),
