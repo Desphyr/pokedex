@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/model/pokemon.dart';
-import 'package:pokedex/shared/widget/pokemon_card_widget.dart';
+import 'model/pokemon.dart';
+import 'shared/widget/pokemon_card_widget.dart';
 
 class DetailPage extends StatefulWidget {
   final Pokemon pokemon;

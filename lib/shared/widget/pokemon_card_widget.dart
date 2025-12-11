@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
 
 class PokemonCardWidget extends StatelessWidget {
+  static final _logger = Logger();
   final String imageUrl;
   final String name;
   final String type;
@@ -14,10 +16,16 @@ class PokemonCardWidget extends StatelessWidget {
     this.onTap,
   });
 
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onTap,
+      onTap: () {
+        _logger.i('Card tapped: $name');
+        if (onTap != null) {
+          onTap!();
+        }
+      },
       child: Container(
         decoration: BoxDecoration(
           color: type == 'Grass'

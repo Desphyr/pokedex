@@ -1,8 +1,7 @@
-
 import 'package:flutter/material.dart';
-import 'package:pokedex/detail_page.dart';
-import 'package:pokedex/model/dummy_data.dart';
-import 'package:pokedex/shared/widget/pokemon_card_widget.dart';
+import 'detail_page.dart';
+import 'model/dummy_data.dart';
+import 'shared/widget/pokemon_card_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -94,8 +93,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-
-
   Widget listPokemon() {
     return Expanded(
       child: GridView.builder(
@@ -109,8 +106,10 @@ class _HomePageState extends State<HomePage> {
         itemBuilder: (context, index) {
           final pokemon = dummyPokemonList[index];
           
-
-          return GestureDetector(
+          return PokemonCardWidget(
+            imageUrl: pokemon.imageUrl,
+            name: pokemon.name,
+            type: pokemon.type,
             onTap: () async {
               try {
                 await Navigator.push(
@@ -123,11 +122,6 @@ class _HomePageState extends State<HomePage> {
                 // menangangani kesalahan navigasi tanpa notifikasi di production
               }
             },
-            child: PokemonCardWidget(
-              imageUrl: pokemon.imageUrl,
-              name: pokemon.name,
-              type: pokemon.type,
-            ),
           );
         },
       ),
