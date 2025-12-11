@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/shared/widget/pokemon_card_widget.dart';
 
 class DetailPage extends StatefulWidget {
   const DetailPage({super.key});
@@ -35,20 +36,12 @@ class _DetailPageState extends State<DetailPage> {
           SizedBox(height: 10),
           Padding(
             padding: const EdgeInsets.all(18.0),
-            child: Container(
-              height: 450,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: Color(0xFFBCD9D8),
-                borderRadius: BorderRadius.circular(28),
-              ),
-              child: Center(
-                child: Image.network(
+            child: PokemonCardWidget(
+              imageUrl:
                   'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png',
-                  height: 300,
-                  width: 300,
-                ),
-              ),
+              name: 'Venusaur',
+              type: 'Grass',
+              onTap: () {},
             ),
           ),
         ],
