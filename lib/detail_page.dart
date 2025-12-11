@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'model/pokemon.dart';
-import 'shared/widget/pokemon_card_widget.dart';
+
 
 class DetailPage extends StatefulWidget {
   final Pokemon pokemon;
@@ -54,11 +54,21 @@ class _DetailPageState extends State<DetailPage> {
             SizedBox(
               width: double.infinity,
               height: MediaQuery.of(context).size.height * 0.6,
-              child: PokemonCardWidget(
-                imageUrl: pokemon.imageUrl,
-                name: '',
-                type: pokemon.type,
-                onTap: () {},
+              child: Container(
+                decoration: BoxDecoration(
+                  color: pokemon.type == 'Grass'
+                      ? Color(0xFFC2E5D5)
+                      : pokemon.type == 'Fire'
+                      ? Color(0xFFEBBCB5)
+                      : pokemon.type == 'Water'
+                      ? Color(0xFFBEDBDD)
+                      : Colors.grey[200],
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Image.network(
+                  pokemon.imageUrl,
+                  fit: BoxFit.contain,
+                ),
               ),
             ),
             Expanded(child: Container()),

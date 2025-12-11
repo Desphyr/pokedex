@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'detail_page.dart';
 import 'model/dummy_data.dart';
-import 'shared/widget/pokemon_card_widget.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -106,10 +106,7 @@ class _HomePageState extends State<HomePage> {
         itemBuilder: (context, index) {
           final pokemon = dummyPokemonList[index];
           
-          return PokemonCardWidget(
-            imageUrl: pokemon.imageUrl,
-            name: pokemon.name,
-            type: pokemon.type,
+          return GestureDetector(
             onTap: () async {
               try {
                 await Navigator.push(
@@ -122,6 +119,44 @@ class _HomePageState extends State<HomePage> {
                 // menangangani kesalahan navigasi tanpa notifikasi di production
               }
             },
+            child: Container(
+              decoration: BoxDecoration(
+                color: pokemon.type == 'Grass'
+                    ? Color(0xFFC2E5D5)
+                    : pokemon.type == 'Fire'
+                    ? Color(0xFFEBBCB5)
+                    : pokemon.type == 'Water'
+                    ? Color(0xFFBEDBDD)
+                    : Colors.grey[200],
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Image.network(
+                      pokemon.imageUrl,
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    pokemon.name,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF223345),
+                    ),
+                  ),
+                  SizedBox(height: 5),
+                  Text(
+                    'Type: ${pokemon.type}',
+                    style: TextStyle(fontSize: 16, color: Colors.grey[600]),
+                  ),
+                  SizedBox(height: 10),
+                ],
+              ),
+            ),
           );
         },
       ),
