@@ -16,37 +16,54 @@ class _DetailPageState extends State<DetailPage> {
     final pokemon = widget.pokemon;
     
     return Scaffold(
-      backgroundColor: Color(0xFFF5FBFB),
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Color(0xFFF5FBFB),
-        title: Text(
-          pokemon.name,
-          style: TextStyle(
-            color: Color(0xFF232447),
-            fontWeight: FontWeight.bold,
-            fontSize: 29,
-          ),
+        backgroundColor: Colors.white,
+        elevation: 0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios, color: Color(0xFF232447)),
+          onPressed: () => Navigator.of(context).pop(),
         ),
-      ),
-      body: Column(
-        children: [
-          Center(
-            child: Text(
+        title: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              pokemon.name,
+              style: TextStyle(
+                color: Color(0xFF232447),
+                fontWeight: FontWeight.bold,
+                fontSize: 29,
+              ),
+            ),
+            Text(
               pokemon.id.toString().padLeft(3, '0'),
-              style: TextStyle(fontSize: 20, color: Color(0xFF3C414F)),
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.grey[600],
+                fontWeight: FontWeight.normal,
+              ),
             ),
-          ),
-          SizedBox(height: 10),
-          Padding(
-            padding: const EdgeInsets.all(18.0),
-            child: PokemonCardWidget(
-              imageUrl: pokemon.imageUrl,
-              name: pokemon.name,
-              type: pokemon.type,
-              onTap: () {},
+          ],
+        ),
+        centerTitle: true,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.fromLTRB(30, 10, 30, 0),
+        child: Column(
+          children: [
+            SizedBox(
+              width: double.infinity,
+              height: MediaQuery.of(context).size.height * 0.6,
+              child: PokemonCardWidget(
+                imageUrl: pokemon.imageUrl,
+                name: '',
+                type: pokemon.type,
+                onTap: () {},
+              ),
             ),
-          ),
-        ],
+            Expanded(child: Container()),
+          ],
+        ),
       ),
     );
   }
