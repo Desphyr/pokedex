@@ -34,8 +34,14 @@ class _DetailPageState extends State<DetailPage> {
           ),
           SizedBox(height: 10),
           Padding(
-            padding: EdgeInsets.all(18.0),
-            child: Container(height: 450, width: double.infinity
+            padding: const EdgeInsets.all(18.0),
+            child: Container(
+              height: 450,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Color(0xFFBCD9D8),
+                borderRadius: BorderRadius.circular(28),
+              ),
             ),
           ),
         ],
