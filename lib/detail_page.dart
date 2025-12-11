@@ -42,6 +42,13 @@ class _DetailPageState extends State<DetailPage> {
                 color: Color(0xFFBCD9D8),
                 borderRadius: BorderRadius.circular(28),
               ),
+              child: Center(
+                child: Image.network(
+                  'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png',
+                  height: 300,
+                  width: 300,
+                ),
+              ),
             ),
           ),
         ],
