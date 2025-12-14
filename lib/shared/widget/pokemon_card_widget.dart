@@ -1,5 +1,34 @@
+
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
+
+class PokemonContainerWidget extends StatelessWidget {
+  final Widget child;
+  final String type;
+
+  const PokemonContainerWidget({
+    super.key,
+    required this.child,
+    required this.type,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: type == 'Grass'
+            ? Color(0xFFC2E5D5)
+            : type == 'Fire'
+            ? Color(0xFFEBBCB5)
+            : type == 'Water'
+            ? Color(0xFFBEDBDD)
+            : Colors.grey[200],
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: child,
+    );
+  }
+}
 
 class PokemonCardWidget extends StatelessWidget {
   static final _logger = Logger();
@@ -16,7 +45,6 @@ class PokemonCardWidget extends StatelessWidget {
     this.onTap,
   });
 
-
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -26,17 +54,8 @@ class PokemonCardWidget extends StatelessWidget {
           onTap!();
         }
       },
-      child: Container(
-        decoration: BoxDecoration(
-          color: type == 'Grass'
-              ? Color(0xFFC2E5D5)
-              : type == 'Fire'
-              ? Color(0xFFEBBCB5)
-              : type == 'Water'
-              ? Color(0xFFBEDBDD)
-              : Colors.grey[200],
-          borderRadius: BorderRadius.circular(12),
-        ),
+      child: PokemonContainerWidget(
+        type: type,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

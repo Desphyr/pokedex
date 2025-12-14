@@ -1,5 +1,7 @@
+
 import 'package:flutter/material.dart';
 import 'model/pokemon.dart';
+import 'shared/widget/pokemon_card_widget.dart';
 
 
 class DetailPage extends StatefulWidget {
@@ -51,20 +53,12 @@ class _DetailPageState extends State<DetailPage> {
         padding: const EdgeInsets.fromLTRB(30, 10, 30, 0),
         child: Column(
           children: [
+
             SizedBox(
               width: double.infinity,
               height: MediaQuery.of(context).size.height * 0.6,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: pokemon.type == 'Grass'
-                      ? Color(0xFFC2E5D5)
-                      : pokemon.type == 'Fire'
-                      ? Color(0xFFEBBCB5)
-                      : pokemon.type == 'Water'
-                      ? Color(0xFFBEDBDD)
-                      : Colors.grey[200],
-                  borderRadius: BorderRadius.circular(12),
-                ),
+              child: PokemonContainerWidget(
+                type: pokemon.type,
                 child: Image.network(
                   pokemon.imageUrl,
                   fit: BoxFit.contain,
